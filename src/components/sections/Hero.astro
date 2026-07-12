@@ -3,14 +3,22 @@ import { site } from "../../data/site";
 ---
 
 <section class="hero" id="kezdolap">
-	<img
-		class="hero-bg"
-		src="/images/horse-banner.png"
-		alt="Lovas a Káli-medence lankái között naplementében"
-		width="2752"
-		height="1536"
-		fetchpriority="high"
-	/><div class="hero-shade"></div>
+	<picture>
+		<source
+			type="image/webp"
+			srcset="/images/horse-banner-480.webp 480w, /images/horse-banner-768.webp 768w, /images/horse-banner-1024.webp 1024w, /images/horse-banner-1280.webp 1280w, /images/horse-banner-1672.webp 1672w"
+			sizes="100vw"
+		/>
+		<img
+			class="hero-bg"
+			src="/images/horse-banner.png"
+			alt="Lovas a Káli-medence lankái között naplementében"
+			width="1672"
+			height="940"
+			loading="eager"
+			fetchpriority="high"
+		/>
+	</picture><div class="hero-shade"></div>
 	<div class="container hero-content">
 		<p class="eyebrow light">
 			{site.location}

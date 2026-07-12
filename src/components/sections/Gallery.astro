@@ -1,6 +1,8 @@
 ---
 import SectionHeading from '../shared/SectionHeading.astro';
 import { galleryImages } from '../../data/gallery';
+import path from 'node:path';
+import sharp from 'sharp';
 
 interface Props {
 	limit?: number;
@@ -10,13 +12,18 @@ interface Props {
 
 const { limit, fullPage = false, showHeading = true } = Astro.props;
 const images = typeof limit === 'number' ? galleryImages.slice(0, limit) : galleryImages;
+const preparedImages = await Promise.all(images.map(async (image) => {
+	const thumbnail = image.src.replace('/gallery/', '/gallery/thumbs/');
+	const metadata = await sharp(path.join(process.cwd(), 'public', thumbnail)).metadata();
+	return { ...image, thumbnail, width: metadata.width, height: metadata.height };
+}));
 ---
 
 <section class:list={['gallery-section', { section: !fullPage, 'gallery-full': fullPage }]} id={fullPage ? undefined : 'galeria'}>
 	<div class={fullPage ? undefined : 'container'}>
 		{showHeading && <SectionHeading eyebrow="Pillanatok az udvarból" title={fullPage ? 'Lovas és tanyasi pillanataink' : 'Élet a ZsM Lovasudvarban'} description={fullPage ? 'Válogatás a lovasudvar őszinte, vidám és csendes mindennapjaiból.' : 'Őszinte találkozások, csendes figyelem és vidám tanyasi hétköznapok a Káli-medencében.'} centered />}
 		<div class="gallery-masonry">
-			{images.map((image) => <figure class="gallery-card"><button class="gallery-open" type="button" data-src={image.src} data-alt={image.alt} data-caption={image.caption} aria-label={`${image.caption} – kép nagyítása`}><img src={image.src} alt={image.alt} loading="lazy" decoding="async" /><span class="gallery-zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span></button><figcaption>{image.caption}</figcaption></figure>)}
+			{preparedImages.map((image) => <figure class="gallery-card"><button class="gallery-open" type="button" data-src={image.src} data-alt={image.alt} data-caption={image.caption} aria-label={`${image.caption} – kép nagyítása`}><img src={image.thumbnail} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" /><span class="gallery-zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span></button><figcaption>{image.caption}</figcaption></figure>)}
 		</div>
 		{!fullPage && <div class="gallery-more"><a class="button button-outline" href="/galeria/">A teljes galéria megtekintése <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>}
 	</div>
