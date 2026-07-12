@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+	title="Az oldal nem található | ZsM Lovasudvar"
+	description="A keresett oldal nem található. Térj vissza a ZsM Lovasudvar kezdőlapjára, vagy fedezd fel programjainkat."
+	noindex
+>
+	<section class="not-found" aria-labelledby="not-found-title">
+		<div class="container not-found-inner">
+			<div class="not-found-copy">
+				<p class="eyebrow">Eltévedtél?</p>
+				<h1 id="not-found-title">Ez az ösvény most nem vezet tovább.</h1>
+				<p>A keresett oldal nem található, lehet, hogy elköltözött vagy a címe hibás. Innen könnyen visszatalálsz a lovasudvar fontos oldalaira.</p>
+				<div class="button-row not-found-actions">
+					<a class="button" href="/">Vissza a kezdőlapra <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+					<a class="button button-outline" href="/kapcsolat/">Segítséget kérek</a>
+				</div>
+				<div class="not-found-links">
+					<p>Ezeket keresheted:</p>
+					<nav aria-label="Hasznos oldalak">
+						<a href="/lovaglas/">Lovaglás <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+						<a href="/arak-es-idopontfoglalas/">Árak és időpontfoglalás <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+						<a href="/galeria/">Galéria <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+						<a href="/gyakori-kerdesek/">Gyakori kérdések <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+					</nav>
+				</div>
+			</div>
+			<div class="not-found-code" aria-hidden="true">404</div>
+		</div>
+	</section>
+</BaseLayout>
