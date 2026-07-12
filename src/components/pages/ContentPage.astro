@@ -32,6 +32,7 @@ const usesHorseBanner = page.image.includes('horse-banner');
 			{
 				page.sections.map((section) => (
 					<section>
+						<h2>{section.title}</h2>
 						<p>{section.text}</p>
 						{section.items && (
 							<ul>
