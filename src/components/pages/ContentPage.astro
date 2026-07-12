@@ -1,0 +1,95 @@
+---
+import type { SeoPage } from "../../data/pages";
+import { pageLabel } from "../../data/pages";
+import Breadcrumbs from "../shared/Breadcrumbs.astro";
+import PageCta from "../shared/PageCta.astro";
+import Gallery from "../sections/Gallery.astro";
+import ContactChannels from "../shared/ContactChannels.astro";
+
+interface Props {
+	page: SeoPage;
+}
+const { page } = Astro.props;
+---
+
+<article class="content-page">
+	<header class="page-hero">
+		<div class="container">
+			<Breadcrumbs path={page.path} /><div class="page-hero-grid">
+				<div>
+					<p class="eyebrow">{page.eyebrow}</p><h1>
+						{page.heading}
+					</h1><p>{page.intro}</p>
+				</div><div class="page-hero-image">
+					<img
+						src={page.image}
+						alt={page.imageAlt}
+						width="1200"
+						height="900"
+						fetchpriority="high"
+					/>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="container page-body">
+		<div class="page-content">
+			{
+				page.sections.map((section) => (
+					<section>
+						<p>{section.text}</p>
+						{section.items && (
+							<ul>
+								{section.items.map((item) => (
+									<li>{item}</li>
+								))}
+							</ul>
+						)}
+					</section>
+				))
+			}
+		</div>
+		{
+			page.faqs && (
+				<section class="page-faq">
+					<>
+						<p class="eyebrow">Gyakori kérdések</p>
+						<h2>Hasznos válaszok</h2>
+						<div class="accordion">
+							{page.faqs.map(([question, answer]) => (
+								<details>
+									<summary>
+										{question}
+										<span aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+									</summary>
+									<p>{answer}</p>
+								</details>
+							))}
+						</div>
+					</>
+				</section>
+			)
+		}
+		{page.path === "galeria" && <Gallery fullPage />}
+		{page.path === "kapcsolat" && <ContactChannels />}
+		{
+			page.related && (
+				<nav class="related-pages" aria-label="Kapcsolódó oldalak">
+					<>
+						<p class="eyebrow">Fedezd fel</p>
+						<h2>Kapcsolódó oldalak</h2>
+						<div>
+							{page.related.map((path) => (
+								<a href={`/${path}/`}>
+									<span>{pageLabel(path)}</span>
+									<b><i class="bi bi-arrow-right" aria-hidden="true"></i></b>
+								</a>
+							))}
+						</div>
+					</>
+				</nav>
+			)
+		}
+		<PageCta />
+	</div>
+</article>

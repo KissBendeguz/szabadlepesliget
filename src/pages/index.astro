@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import EntryCards from '../components/sections/EntryCards.astro';
+import About from '../components/sections/About.astro';
+import Benefits from '../components/sections/Benefits.astro';
+import Programs from '../components/sections/Programs.astro';
+import FirstVisit from '../components/sections/FirstVisit.astro';
+import Animals from '../components/sections/Animals.astro';
+import Gallery from '../components/sections/Gallery.astro';
+import Location from '../components/sections/Location.astro';
+import Faq from '../components/sections/Faq.astro';
+import FinalCta from '../components/sections/FinalCta.astro';
+---
+
+<BaseLayout
+	title="ZsM Lovasudvar | Lovas élmények Káptalantótiban"
+	description="Lovas foglalkozások és mozgás- és képességfejlesztés gyerekeknek és felnőtteknek Káptalantótiban, a Káli-medence szívében."
+>
+	<Hero />
+	<EntryCards />
+	<About />
+	<Benefits />
+	<Programs />
+	<FirstVisit />
+	<Animals />
+	<Gallery limit={8} />
+	<Location />
+	<Faq />
+	<FinalCta />
+</BaseLayout>

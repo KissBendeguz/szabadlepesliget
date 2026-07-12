@@ -1,0 +1,57 @@
+---
+const animals = [
+	{
+		className: "animal-main",
+		image: "/gallery/269f59d3-4c15-4351-8d48-69f8a14670b1.webp",
+		alt: "Két ló békésen legel a lovasudvarban",
+		title: "Lovaink",
+		text: "Nyugodt, érzékeny társak",
+	},
+	{
+		image: "/gallery/a12462e2-ee37-4920-aae4-989844099f03.webp",
+		alt: "A lovasudvar szamara naplementében",
+		title: "Szamarunk",
+		text: "Kíváncsi és kedves",
+	},
+	{
+		image: "/gallery/74becb51-a899-42b7-bbf7-bb4e5d7a4553.webp",
+		alt: "Bárányok a lovasudvarban",
+		title: "Bárányaink",
+		text: "A tanya puha szívű lakói",
+	},
+];
+---
+
+<section class="animals section" id="allataink">
+	<div class="container">
+		<div class="section-heading heading-row">
+			<div>
+				<p class="eyebrow">Tanyasi mindennapok</p><h2>
+					Ismerd meg az állatainkat
+				</h2>
+			</div>
+		</div><div class="animal-grid">
+			{
+				animals.map((animal) => (
+					<figure class={animal.className}>
+						<>
+							<img
+								src={animal.image}
+								alt={animal.alt}
+								width="1200"
+								height="1600"
+								loading="lazy"
+							/>
+							<figcaption>
+								<>
+									<strong>{animal.title}</strong>
+									<span>{animal.text}</span>
+								</>
+							</figcaption>
+						</>
+					</figure>
+				))
+			}
+		</div>
+	</div>
+</section>

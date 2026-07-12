@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContentPage from '../components/pages/ContentPage.astro';
+import { pages, type SeoPage } from '../data/pages';
+
+export function getStaticPaths() {
+	return pages.map((page) => ({ params: { slug: page.path }, props: { page } }));
+}
+
+interface Props { page: SeoPage; }
+const { page } = Astro.props;
+---
+<BaseLayout title={page.title} description={page.description}><ContentPage page={page} /></BaseLayout>

@@ -1,0 +1,52 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+import { site } from "../../data/site";
+const steps = [
+	{
+		number: "01",
+		title: "Rövid egyeztetés",
+		text: "Telefonon átbeszéljük, kinek keresel foglalkozást, és mire lenne szükségetek.",
+	},
+	{
+		number: "02",
+		title: "Ismerkedés",
+		text: "Megérkezés után körülnézünk, találkozunk a lóval és megteremtjük a biztonságos kapcsolatot.",
+	},
+	{
+		number: "03",
+		title: "Saját tempóban",
+		text: "A foglalkozást az aznapi hangulathoz és egyéni célokhoz igazítjuk.",
+	},
+];
+---
+
+<section class="first-visit section">
+	<div class="container">
+		<SectionHeading
+			eyebrow="Jó tudni"
+			title="Így zajlik az első alkalom"
+			description="Nincs szükség előzetes tapasztalatra. Nyugodtan, lépésről lépésre ismerkedünk."
+			centered
+			light
+		/><ol class="steps">
+			{
+				steps.map((step) => (
+					<li>
+						<>
+							<span>{step.number}</span>
+							<div>
+								<>
+									<h3>{step.title}</h3>
+									<p>{step.text}</p>
+								</>
+							</div>
+						</>
+					</li>
+				))
+			}
+		</ol><div class="center-action">
+			<a class="button button-warm" href={site.phoneLink}
+				>Egyeztessünk időpontot <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+		</div>
+	</div>
+</section>

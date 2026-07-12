@@ -1,0 +1,65 @@
+---
+import SectionHeading from '../shared/SectionHeading.astro';
+import { galleryImages } from '../../data/gallery';
+
+interface Props {
+	limit?: number;
+	fullPage?: boolean;
+	showHeading?: boolean;
+}
+
+const { limit, fullPage = false, showHeading = true } = Astro.props;
+const images = typeof limit === 'number' ? galleryImages.slice(0, limit) : galleryImages;
+---
+
+<section class:list={['gallery-section', { section: !fullPage, 'gallery-full': fullPage }]} id={fullPage ? undefined : 'galeria'}>
+	<div class={fullPage ? undefined : 'container'}>
+		{showHeading && <SectionHeading eyebrow="Pillanatok az udvarból" title={fullPage ? 'Lovas és tanyasi pillanataink' : 'Élet a ZsM Lovasudvarban'} description={fullPage ? 'Válogatás a lovasudvar őszinte, vidám és csendes mindennapjaiból.' : 'Őszinte találkozások, csendes figyelem és vidám tanyasi hétköznapok a Káli-medencében.'} centered />}
+		<div class="gallery-masonry">
+			{images.map((image) => <figure class="gallery-card"><button class="gallery-open" type="button" data-src={image.src} data-alt={image.alt} data-caption={image.caption} aria-label={`${image.caption} – kép nagyítása`}><img src={image.src} alt={image.alt} loading="lazy" decoding="async" /><span class="gallery-zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span></button><figcaption>{image.caption}</figcaption></figure>)}
+		</div>
+		{!fullPage && <div class="gallery-more"><a class="button button-outline" href="/galeria/">A teljes galéria megtekintése <i class="bi bi-arrow-right" aria-hidden="true"></i></a></div>}
+	</div>
+	<dialog class="gallery-lightbox" aria-label="Nagyított galériakép">
+		<div class="lightbox-stage">
+			<button class="lightbox-close" type="button" aria-label="Nagyított kép bezárása"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+			<figure class="lightbox-figure"><img src="" alt="" /><figcaption></figcaption></figure>
+		</div>
+	</dialog>
+</section>
+
+<script>
+	const initializeGalleries = () => {
+		document.querySelectorAll<HTMLElement>('.gallery-section').forEach((gallery) => {
+			if (gallery.dataset.lightboxReady) return;
+			gallery.dataset.lightboxReady = 'true';
+
+			const dialog = gallery.querySelector<HTMLDialogElement>('.gallery-lightbox');
+			const image = dialog?.querySelector<HTMLImageElement>('.lightbox-figure img');
+			const caption = dialog?.querySelector<HTMLElement>('.lightbox-figure figcaption');
+			const closeButton = dialog?.querySelector<HTMLButtonElement>('.lightbox-close');
+			if (!dialog || !image || !caption || !closeButton) return;
+
+			gallery.querySelectorAll<HTMLButtonElement>('.gallery-open').forEach((button) => {
+				button.addEventListener('click', () => {
+					image.src = button.dataset.src ?? '';
+					image.alt = button.dataset.alt ?? '';
+					caption.textContent = button.dataset.caption ?? '';
+					dialog.showModal();
+				});
+			});
+
+			closeButton.addEventListener('click', () => dialog.close());
+			dialog.addEventListener('click', (event) => {
+				if (event.target === dialog || event.target === dialog.querySelector('.lightbox-stage')) dialog.close();
+			});
+			dialog.addEventListener('close', () => {
+				image.removeAttribute('src');
+				caption.textContent = '';
+			});
+		});
+	};
+
+	initializeGalleries();
+	document.addEventListener('astro:page-load', initializeGalleries);
+</script>

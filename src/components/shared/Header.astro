@@ -1,0 +1,21 @@
+---
+import { navigation, site } from '../../data/site';
+---
+
+<header class="site-header">
+	<div class="container header-inner">
+		<a class="brand brand-circle" href="/" aria-label={`${site.name} – kezdőlap`}><img src="/images/logo-text-bg512.webp" alt={site.name} width="64" height="64" /></a>
+		<nav class="desktop-nav" aria-label="Fő navigáció">{navigation.map((item) => <a href={item.href}>{item.label}</a>)}</nav>
+		<div class="header-actions">
+			<a class="phone-link" href={site.phoneLink} aria-label={`Telefon: ${site.phoneDisplay}`}><i class="bi bi-telephone" aria-hidden="true"></i><span>{site.phoneDisplay}</span></a>
+			<a class="button button-small" href="/arak-es-idopontfoglalas/">Időpontot kérek</a>
+		</div>
+		<details class="mobile-menu">
+			<summary aria-label="Menü megnyitása"><span></span><span></span><span></span></summary>
+			<div class="mobile-panel">
+				{navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+				<a href="/kapcsolat/">Kapcsolat</a><a class="button" href={site.phoneLink}>Felhívom</a>
+			</div>
+		</details>
+	</div>
+</header>

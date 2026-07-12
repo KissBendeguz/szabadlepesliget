@@ -1,0 +1,53 @@
+---
+import { site } from "../../data/site";
+const questions = [
+	[
+		"Teljesen kezdőként is jelentkezhetek?",
+		"Igen. A foglalkozások kezdőknek és újrakezdőknek is szólnak, az első lépésektől, egyéni tempóban haladunk.",
+	],
+	[
+		"Milyen ruházat szükséges?",
+		"Kényelmes, az időjárásnak megfelelő ruhát és zárt cipőt javaslunk. A részleteket az időpont egyeztetésekor átbeszéljük.",
+	],
+	[
+		"Kell saját kobakot hozni?",
+		"Nem szükséges. A biztonsági felszerelésről és az alkalomhoz szükséges minden tudnivalóról előre tájékoztatunk.",
+	],
+	[
+		"Mi történik rossz idő esetén?",
+		"Az időjárást folyamatosan figyeljük. Ha az alkalom nem tartható meg biztonságosan, időben egyeztetünk új időpontot.",
+	],
+	[
+		"Hogyan lehet időpontot kérni?",
+		"A legegyszerűbben telefonon. Röviden átbeszéljük az igényeket, majd közösen választunk megfelelő időpontot.",
+	],
+];
+---
+
+<section class="faq section">
+	<div class="container faq-grid">
+		<div class="faq-intro">
+			<p class="eyebrow">Kérdések és válaszok</p><h2>
+				Mielőtt elindultok
+			</h2><p>
+				Összegyűjtöttük a leggyakoribb kérdéseket. Ha valamire nem
+				találsz választ, hívj bátran!
+			</p><a class="text-link" href={site.phoneLink}
+				>{site.phoneDisplay} <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+		</div><div class="accordion">
+			{
+				questions.map(([question, answer], index) => (
+					<details open={index === 0}>
+						<>
+							<summary>
+								{question}
+								<span aria-hidden="true"><i class="bi bi-chevron-down"></i></span>
+							</summary>
+							<p>{answer}</p>
+						</>
+					</details>
+				))
+			}
+		</div>
+	</div>
+</section>

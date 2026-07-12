@@ -1,0 +1,8 @@
+---
+import { site } from '../../data/site';
+interface Props { showLabels?: boolean; className?: string; }
+const { showLabels = false, className = '' } = Astro.props;
+---
+<div class:list={['social-links', { 'social-links-labeled': showLabels }, className]} aria-label="Közösségi média">
+	{site.socials.map((social) => <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={`${social.label} megnyitása új ablakban`}><i class:list={['bi', social.icon]} aria-hidden="true"></i>{showLabels && <span>{social.label}</span>}</a>)}
+</div>

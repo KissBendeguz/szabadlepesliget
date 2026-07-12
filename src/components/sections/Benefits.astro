@@ -1,0 +1,53 @@
+---
+import SectionHeading from "../shared/SectionHeading.astro";
+const benefits = [
+	{
+		icon: "bi-universal-access",
+		title: "Egyensúly és koordináció",
+		text: "A ló ritmikus mozgása játékosan mozdítja meg az egész testet.",
+	},
+	{
+		icon: "bi-bullseye",
+		title: "Figyelem és koncentráció",
+		text: "A közös feladatok segíthetnek elmélyülni és a jelenre figyelni.",
+	},
+	{
+		icon: "bi-heart",
+		title: "Önbizalom és önállóság",
+		text: "Minden apró siker teret adhat a bátorság és a bizalom növekedésének.",
+	},
+	{
+		icon: "bi-sun",
+		title: "Kapcsolódás és feltöltődés",
+		text: "A természet és az állatok közelsége kiszakít a mindennapi rohanásból.",
+	},
+];
+---
+
+<section class="benefits section">
+	<div class="container">
+		<SectionHeading
+			eyebrow="A ló mint társ"
+			title="Mit adhat a ló közelsége?"
+			description="A közös munka nem teljesítményről szól, hanem figyelemről, kapcsolódásról és apró, örömteli lépésekről."
+			centered
+		/><div class="benefit-grid">
+			{
+				benefits.map((item) => (
+					<article class="benefit">
+						<>
+							<span>
+								<i
+									class:list={["bi", item.icon]}
+									aria-hidden="true"
+								/>
+							</span>
+							<h3>{item.title}</h3>
+							<p>{item.text}</p>
+						</>
+					</article>
+				))
+			}
+		</div>
+	</div>
+</section>

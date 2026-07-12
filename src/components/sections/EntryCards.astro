@@ -1,0 +1,60 @@
+---
+const cards = [
+	{
+		href: "/lovaglas/gyerek-lovaglas/",
+		className: "",
+		icon: "bi-person-arms-up",
+		title: "Gyermek lovaglás",
+		text: "Játékos fejlődés, biztonságos első élmények és sok-sok bátorító pillanat.",
+		link: "Tovább olvasok",
+	},
+	{
+		href: "/lovaglas/felnott-lovaglas/",
+		className: "terracotta",
+		icon: "bi-person-walking",
+		title: "Felnőtt foglalkozások",
+		text: "Nyugodt kapcsolódás, feltöltődés és személyre szabott figyelem.",
+		link: "Tovább olvasok",
+	},
+	{
+		href: "/allataink/",
+		className: "golden",
+		icon: "bi-flower1",
+		title: "Tanyasi állatok",
+		text: "Lovak, szamár, bárányok és más kedves lakók egy valódi tanyasi közegben.",
+		link: "Ismerd meg őket",
+	},
+];
+---
+
+<section class="quick-links section" id="lovaglas">
+	<div class="container cards-three">
+		{
+			cards.map((card) => (
+				<a class:list={["entry-card", card.className]} href={card.href}>
+					<>
+						<span class="line-icon">
+							<i
+								class:list={["bi", card.icon]}
+								aria-hidden="true"
+							/>
+						</span>
+						<div>
+							<>
+								<h2>{card.title}</h2>
+								<p>{card.text}</p>
+								<span class="card-link">
+									{card.link}{" "}
+									<i
+										class="bi bi-arrow-right"
+										aria-hidden="true"
+									/>
+								</span>
+							</>
+						</div>
+					</>
+				</a>
+			))
+		}
+	</div>
+</section>

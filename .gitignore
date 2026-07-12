@@ -1,0 +1,45 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env*
+!.env.example
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# local FTP deployment state
+.ftp-deploy-sync-state.json
+
+# local backup files
+*.old
+
+# local AI and project specification files
+/AGENTS.md
+/CLAUDE.md
+/web.md
+
+# original, unoptimized gallery sources are stored separately
+public/gallery/raw/

@@ -1,0 +1,43 @@
+---
+import { site } from "../../data/site";
+---
+
+<section class="hero" id="kezdolap">
+	<img
+		class="hero-bg"
+		src="/images/horse-banner.png"
+		alt="Lovas a Káli-medence lankái között naplementében"
+		width="2752"
+		height="1536"
+		fetchpriority="high"
+	/><div class="hero-shade"></div>
+	<div class="container hero-content">
+		<p class="eyebrow light">
+			{site.location}
+			<span>·</span>
+			{site.region}
+		</p><h1>Lovas élmények, amelyek közelebb hoznak önmagadhoz</h1><p
+			class="hero-lead"
+		>
+			Mozgás- és képességfejlesztő lovas foglalkozások gyerekeknek és
+			felnőtteknek, szeretetteljes tanyasi környezetben.
+		</p><div class="button-row">
+			<a class="button button-warm" href="/arak-es-idopontfoglalas/"
+				>Időpontot kérek <i class="bi bi-arrow-right" aria-hidden="true"></i></a
+			><a class="text-link light-link" href="/rolunk/"
+				>Ismerd meg a lovasudvart <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+		</div>
+	</div>
+	<div class="location-tag">
+		<i class="bi bi-geo-alt" aria-hidden="true"></i>
+		{site.location}, {site.region}
+	</div><svg
+		class="hill-line"
+		viewBox="0 0 1440 110"
+		preserveAspectRatio="none"
+		aria-hidden="true"
+		><path
+			d="M0 76C188 32 294 28 440 67c173 46 258-33 420-16 165 18 220 58 356 28 90-20 157-28 224-19v50H0Z"
+		></path></svg
+	>
+</section>
