@@ -2,6 +2,8 @@ export const site = {
 	name: 'ZsM Lovasudvar',
 	location: 'Káptalantóti',
 	region: 'Káli-medence',
+	postalCode: '8283',
+	addressRegion: 'Veszprém vármegye',
 	phoneDisplay: '+36 20 570 9516',
 	phoneLink: 'tel:+36205709516',
 	email: 'melittajuhasz9@gmail.com',
@@ -15,6 +17,12 @@ export const site = {
 		name: 'Kiss Bendegúz',
 		url: 'https://kissbendeguz.hu',
 	},
+	services: [
+		{ name: 'Gyermek lovaglás', url: '/lovaglas/gyerek-lovaglas/' },
+		{ name: 'Felnőtt lovaglás', url: '/lovaglas/felnott-lovaglas/' },
+		{ name: 'Kezdő lovaglás', url: '/lovaglas/kezdo-lovaglas/' },
+		{ name: 'Mozgás- és képességfejlesztő lovas foglalkozás', url: '/lovaglas/mozgas-es-kepessegfejlesztes/' },
+	],
 };
 
 export const navigation = [

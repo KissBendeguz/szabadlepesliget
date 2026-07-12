@@ -8,7 +8,31 @@ const image = origin ? new URL('/og-image.png', origin).href : '/og-image.png';
 const structuredData = canonical ? {
 	'@context': 'https://schema.org',
 	'@graph': [
-		{ '@type': 'LocalBusiness', '@id': `${origin}/#business`, name: site.name, url: origin, image, logo: image, telephone: site.phoneDisplay, email: site.email, address: { '@type': 'PostalAddress', addressLocality: site.location, addressCountry: 'HU' }, sameAs: site.socials.map((social) => social.href) },
+		{
+			'@type': ['LocalBusiness', 'SportsActivityLocation'],
+			'@id': `${origin}/#business`,
+			name: site.name,
+			url: origin,
+			image,
+			logo: image,
+			telephone: site.phoneDisplay,
+			email: site.email,
+			address: { '@type': 'PostalAddress', postalCode: site.postalCode, addressLocality: site.location, addressRegion: site.addressRegion, addressCountry: 'HU' },
+			areaServed: [
+				{ '@type': 'City', name: site.location },
+				{ '@type': 'AdministrativeArea', name: site.region },
+				{ '@type': 'AdministrativeArea', name: 'Balaton-felvidék' },
+			],
+			hasOfferCatalog: {
+				'@type': 'OfferCatalog',
+				name: 'Lovas foglalkozások',
+				itemListElement: site.services.map((service) => ({
+					'@type': 'Offer',
+					itemOffered: { '@type': 'Service', name: service.name, url: new URL(service.url, origin).href, provider: { '@id': `${origin}/#business` } },
+				})),
+			},
+			sameAs: site.socials.map((social) => social.href),
+		},
 		{ '@type': 'WebSite', '@id': `${origin}/#website`, url: origin, name: site.name, inLanguage: 'hu-HU', publisher: { '@id': `${origin}/#business` } },
 		{ '@type': 'WebPage', '@id': `${canonical.href}#webpage`, url: canonical.href, name: title, description, inLanguage: 'hu-HU', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#business` }, primaryImageOfPage: { '@type': 'ImageObject', url: image } },
 	],
