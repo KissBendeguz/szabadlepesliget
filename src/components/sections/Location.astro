@@ -1,59 +1,29 @@
 ---
-import { site } from "../../data/site";
+import { site } from '../../data/site';
+import GoogleMap from '../shared/GoogleMap.astro';
 ---
 
 <section class="location section">
-    <div class="container location-grid">
-        <div class="location-copy">
-            <p class="eyebrow">Itt találsz minket</p><h2>
-                Lóasszisztált foglalkozások Káptalantóti természetközeli környezetében
-            </h2><p class="lead">
-                A ZsM Lovasudvar Káptalantótiban, a Káli-medence és a
-                Balaton-felvidék különleges tájai között vár — távol a városi
-                zajtól, közel a természethez.
-            </p><div class="location-info">
-                <div>
-                    <i class="bi bi-geo-alt" aria-hidden="true"></i><p>
-                        <strong>{site.name}</strong><br />{site.location}<br
-                        /><small>Előzetes bejelentkezéssel</small>
-                    </p>
-                </div><div>
-                    <i class="bi bi-telephone" aria-hidden="true"></i><p>
-                        <strong>Telefon</strong><br /><a href={site.phoneLink}
-                            >{site.phoneDisplay}</a>
-                    </p>
-                </div>
-            </div><div class="button-row">
-                <a
-                    class="button"
-                    href={site.mapsLink}
-                    target="_blank"
-                    rel="noopener"
-                    >Útvonalat tervezek <i
-                        class="bi bi-box-arrow-up-right"
-                        aria-hidden="true"></i></a
-                ><a class="text-link" href="/kornyek/"
-					>Fedezd fel a környéket <i class="bi bi-arrow-right" aria-hidden="true"
-                    ></i></a>
-            </div>
-        </div><div class="map-art" aria-label="Káptalantóti stilizált térképe">
-            <div class="sun"></div><svg viewBox="0 0 620 420" aria-hidden="true"
-                ><path
-                    class="map-road"
-                    d="M-20 356C111 287 139 183 276 206c145 24 179-112 370-83"
-                ></path><path
-                    class="map-road thin"
-                    d="M79 441c67-106 125-101 187-170 73-82 163-48 203-159"
-                ></path><path
-                    class="map-hill"
-                    d="M0 323c82-74 148-89 234-48 88 43 144 13 206-28 74-48 137-45 202-10"
-                ></path><circle cx="325" cy="198" r="14"></circle><path
-                    class="pin"
-                    d="M325 102c-35 0-63 28-63 63 0 54 63 108 63 108s63-54 63-108c0-35-28-63-63-63Zm0 86a25 25 0 1 1 0-50 25 25 0 0 1 0 50Z"
-                ></path></svg
-            ><div class="map-label">
-                <strong>{site.name}</strong><span>{site.location}</span>
-            </div>
-        </div>
-    </div>
+	<div class="container location-grid">
+		<div class="location-copy">
+			<p class="eyebrow">Itt találsz minket</p>
+			<h2>Lóasszisztált foglalkozások Káptalantóti természetközeli környezetében</h2>
+			<p class="lead">A ZsM Lovasudvar Káptalantótiban, a Káli-medence és a Balaton-felvidék különleges tájai között vár — távol a városi zajtól, közel a természethez.</p>
+			<div class="location-info">
+				<div>
+					<i class="bi bi-geo-alt" aria-hidden="true"></i>
+					<p><strong>{site.name}</strong><br /><a href={site.mapsPlaceLink} target="_blank" rel="noopener noreferrer">{site.fullAddress}</a><br /><small>Előzetes bejelentkezéssel</small></p>
+				</div>
+				<div>
+					<i class="bi bi-telephone" aria-hidden="true"></i>
+					<p><strong>Telefon</strong><br /><a href={site.phoneLink}>{site.phoneDisplay}</a></p>
+				</div>
+			</div>
+			<div class="button-row">
+				<a class="button" href={site.mapsDirectionsLink} target="_blank" rel="noopener noreferrer">Útvonalat tervezek <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></a>
+				<a class="text-link" href="/kornyek/">Fedezd fel a környéket <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+			</div>
+		</div>
+		<GoogleMap />
+	</div>
 </section>

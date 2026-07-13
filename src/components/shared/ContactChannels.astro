@@ -4,6 +4,6 @@ import SocialLinks from './SocialLinks.astro';
 ---
 <section class="contact-channels" aria-labelledby="contact-channels-title">
 	<p class="eyebrow">Elérhetőségeink</p><h2 id="contact-channels-title">Keress a neked kényelmes módon</h2>
-	<div class="contact-channel-grid"><a href={site.phoneLink}><i class="bi bi-telephone" aria-hidden="true"></i><span><strong>Telefon</strong><small>{site.phoneDisplay}</small></span></a><a href={site.emailLink}><i class="bi bi-envelope" aria-hidden="true"></i><span><strong>E-mail</strong><small>{site.email}</small></span></a></div>
+	<div class="contact-channel-grid"><a href={site.phoneLink}><i class="bi bi-telephone" aria-hidden="true"></i><span><strong>Telefon</strong><small>{site.phoneDisplay}</small></span></a><a href={site.emailLink}><i class="bi bi-envelope" aria-hidden="true"></i><span><strong>E-mail</strong><small>{site.email}</small></span></a><a href={site.mapsPlaceLink} target="_blank" rel="noopener noreferrer"><i class="bi bi-geo-alt" aria-hidden="true"></i><span><strong>Cím</strong><small>{site.fullAddress}</small></span></a></div>
 	<SocialLinks showLabels />
 </section>

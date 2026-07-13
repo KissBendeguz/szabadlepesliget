@@ -6,6 +6,7 @@ import PageCta from "../shared/PageCta.astro";
 import Gallery from "../sections/Gallery.astro";
 import ContactChannels from "../shared/ContactChannels.astro";
 import AudienceBenefits from "../sections/AudienceBenefits.astro";
+import GoogleMap from "../shared/GoogleMap.astro";
 
 interface Props {
 	page: SeoPage;
@@ -69,7 +70,7 @@ const usesResponsiveBanner = page.image.includes('newbanner');
 			)
 		}
 		{page.path === "galeria" && <Gallery fullPage />}
-		{page.path === "kapcsolat" && <ContactChannels />}
+		{page.path === "kapcsolat" && <><ContactChannels /><GoogleMap compact /></>}
 		{
 			page.related && (
 				<nav class="related-pages" aria-label="Kapcsolódó oldalak">

@@ -17,7 +17,9 @@ const structuredData = canonical ? {
 			logo: image,
 			telephone: site.phoneDisplay,
 			email: site.email,
-			address: { '@type': 'PostalAddress', postalCode: site.postalCode, addressLocality: site.location, addressRegion: site.addressRegion, addressCountry: 'HU' },
+			address: { '@type': 'PostalAddress', streetAddress: site.streetAddress, postalCode: site.postalCode, addressLocality: site.location, addressRegion: site.addressRegion, addressCountry: 'HU' },
+			geo: { '@type': 'GeoCoordinates', latitude: site.latitude, longitude: site.longitude },
+			hasMap: site.mapsPlaceLink,
 			areaServed: [
 				{ '@type': 'City', name: site.location },
 				{ '@type': 'AdministrativeArea', name: site.region },
