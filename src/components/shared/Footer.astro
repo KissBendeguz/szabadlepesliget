@@ -6,9 +6,9 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
 	<div class="container footer-grid">
-		<div class="footer-brand"><img src="/images/logo-text.svg" alt={site.name} width="190" height="70" /><p>Személyes, szeretetteljes lovas foglalkozások a Káli-medence szívében.</p></div>
-		<div><h2>Foglalkozások</h2><a href="/lovaglas/gyerek-lovaglas/">Gyerekeknek</a><a href="/lovaglas/felnott-lovaglas/">Felnőtteknek</a><a href="/lovaglas/mozgas-es-kepessegfejlesztes/">Képességfejlesztés</a><a href="/tanyasi-elmenyek/">Tanyasi élmények</a></div>
-		<div><h2>Fedezd fel</h2><a href="/rolunk/">Rólunk</a><a href="/allataink/">Állataink</a><a href="/galeria/">Galéria</a><a href="/kornyek/">Környék</a><a href="/lovas-naplo/">Lovas Napló</a><a href="/gyakori-kerdesek/">Gyakori kérdések</a><a href="/kapcsolat/">Kapcsolat</a></div>
+		<div class="footer-brand"><img src="/images/logo-text.svg" alt={site.name} width="190" height="70" /><p>Lóháton végzett képességfejlesztés gyerekeknek és lóval való önismeret felnőtteknek.</p></div>
+		<div><h2>Foglalkozások</h2><a href="/foglalkozasok/mozgas-es-kepessegfejlesztes/">Gyerekeknek</a><a href="/foglalkozasok/loasszisztalt-onismeret/">Felnőtteknek</a><a href="/foglalkozasok/">Foglalkozásaink</a></div>
+		<div><h2>Fedezd fel</h2><a href="/rolunk/">Rólunk</a><a href="/allataink/">Állataink</a><a href="/tanyasi-elmenyek/">Tanyasi mindennapok</a><a href="/galeria/">Galéria</a><a href="/kornyek/">Környék</a><a href="/lovas-naplo/">Lovas Napló</a><a href="/gyakori-kerdesek/">Gyakori kérdések</a><a href="/kapcsolat/">Kapcsolat</a></div>
 		<div><h2>Elérhetőség</h2><p>{site.location}<br />Előzetes bejelentkezéssel</p><a class="footer-phone" href={site.phoneLink}>{site.phoneDisplay}</a><a href={site.emailLink}>{site.email}</a><SocialLinks /></div>
 	</div>
 	<div class="container footer-bottom"><span>© {year} {site.name}</span><span>Webfejlesztés: <a class="developer-credit" href={site.developer.url} target="_blank" rel="noopener noreferrer">{site.developer.name}</a></span></div>

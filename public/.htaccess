@@ -1,5 +1,15 @@
 ErrorDocument 404 /404.html
 
+<IfModule mod_alias.c>
+  Redirect 301 /lovaglas/gyerek-lovaglas/ /foglalkozasok/mozgas-es-kepessegfejlesztes/
+  Redirect 301 /lovaglas/mozgas-es-kepessegfejlesztes/ /foglalkozasok/mozgas-es-kepessegfejlesztes/
+  Redirect 301 /lovaglas/felnott-lovaglas/ /foglalkozasok/loasszisztalt-onismeret/
+  Redirect 301 /lovaglas/kezdo-lovaglas/ /foglalkozasok/
+  Redirect 301 /lovaglas/ /foglalkozasok/
+  Redirect 301 /kornyek/lovaglas-kali-medence/ /kornyek/loasszisztalt-foglalkozasok-kali-medence/
+  Redirect 301 /kornyek/lovaglas-balaton-felvidek/ /kornyek/loasszisztalt-foglalkozasok-balaton-felvidek/
+</IfModule>
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"

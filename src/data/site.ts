@@ -18,17 +18,15 @@ export const site = {
 		url: 'https://kissbendeguz.hu',
 	},
 	services: [
-		{ name: 'Gyermek lovaglás', url: '/lovaglas/gyerek-lovaglas/' },
-		{ name: 'Felnőtt lovaglás', url: '/lovaglas/felnott-lovaglas/' },
-		{ name: 'Kezdő lovaglás', url: '/lovaglas/kezdo-lovaglas/' },
-		{ name: 'Mozgás- és képességfejlesztő lovas foglalkozás', url: '/lovaglas/mozgas-es-kepessegfejlesztes/' },
+		{ name: 'Mozgás- és képességfejlesztés gyerekeknek lóháton', url: '/foglalkozasok/mozgas-es-kepessegfejlesztes/' },
+		{ name: 'Lóasszisztált önismereti foglalkozás felnőtteknek', url: '/foglalkozasok/loasszisztalt-onismeret/' },
 	],
 };
 
 export const navigation = [
-	{ href: '/lovaglas/', label: 'Lovaglás' },
-	{ href: '/lovaglas/gyerek-lovaglas/', label: 'Gyerekeknek' },
-	{ href: '/lovaglas/felnott-lovaglas/', label: 'Felnőtteknek' },
+	{ href: '/foglalkozasok/', label: 'Foglalkozások' },
+	{ href: '/foglalkozasok/mozgas-es-kepessegfejlesztes/', label: 'Gyerekeknek' },
+	{ href: '/foglalkozasok/loasszisztalt-onismeret/', label: 'Felnőtteknek' },
 	{ href: '/allataink/', label: 'Állataink' },
 	{ href: '/galeria/', label: 'Galéria' },
 	{ href: '/rolunk/', label: 'Rólunk' },

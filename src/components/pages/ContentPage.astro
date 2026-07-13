@@ -5,12 +5,13 @@ import Breadcrumbs from "../shared/Breadcrumbs.astro";
 import PageCta from "../shared/PageCta.astro";
 import Gallery from "../sections/Gallery.astro";
 import ContactChannels from "../shared/ContactChannels.astro";
+import AudienceBenefits from "../sections/AudienceBenefits.astro";
 
 interface Props {
 	page: SeoPage;
 }
 const { page } = Astro.props;
-const usesHorseBanner = page.image.includes('horse-banner');
+const usesResponsiveBanner = page.image.includes('newbanner');
 ---
 
 <article class="content-page">
@@ -22,7 +23,7 @@ const usesHorseBanner = page.image.includes('horse-banner');
 						{page.heading}
 					</h1><p>{page.intro}</p>
 				</div><div class="page-hero-image">
-					{usesHorseBanner ? <picture><source type="image/webp" srcset="/images/horse-banner-768.webp 768w, /images/horse-banner-1024.webp 1024w, /images/horse-banner-1280.webp 1280w" sizes="(max-width: 820px) 100vw, 46vw" /><img src="/images/horse-banner.png" alt={page.imageAlt} width="1672" height="940" fetchpriority="high" /></picture> : <img src={page.image} alt={page.imageAlt} width="1200" height="900" fetchpriority="high" />}
+					{usesResponsiveBanner ? <picture><source type="image/webp" srcset="/images/newbanner-480.webp 480w, /images/newbanner-768.webp 768w, /images/newbanner-1024.webp 1024w, /images/newbanner-1280.webp 1280w, /images/newbanner-1448.webp 1448w" sizes="(max-width: 820px) 100vw, 46vw" /><img src="/images/newbanner.png" alt={page.imageAlt} width="1448" height="1086" fetchpriority="high" /></picture> : <img src={page.image} alt={page.imageAlt} width="1200" height="900" fetchpriority="high" />}
 				</div>
 			</div>
 		</div>
@@ -45,6 +46,7 @@ const usesHorseBanner = page.image.includes('horse-banner');
 				))
 			}
 		</div>
+		{page.path === "foglalkozasok/mozgas-es-kepessegfejlesztes" && <AudienceBenefits />}
 		{
 			page.faqs && (
 				<section class="page-faq">

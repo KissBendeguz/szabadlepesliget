@@ -1,7 +1,7 @@
 {
 	"name": "ZsM Lovasudvar",
 	"short_name": "ZsM Lovasudvar",
-	"description": "Lovas foglalkozások gyerekeknek és felnőtteknek Káptalantótiban.",
+	"description": "Mozgás- és képességfejlesztés gyerekeknek lóháton, valamint lóasszisztált önismeret felnőtteknek Káptalantótiban.",
 	"lang": "hu",
 	"start_url": "/",
 	"display": "standalone",

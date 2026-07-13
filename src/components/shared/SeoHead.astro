@@ -9,7 +9,7 @@ const structuredData = canonical ? {
 	'@context': 'https://schema.org',
 	'@graph': [
 		{
-			'@type': ['LocalBusiness', 'SportsActivityLocation'],
+			'@type': 'LocalBusiness',
 			'@id': `${origin}/#business`,
 			name: site.name,
 			url: origin,
@@ -25,7 +25,7 @@ const structuredData = canonical ? {
 			],
 			hasOfferCatalog: {
 				'@type': 'OfferCatalog',
-				name: 'Lovas foglalkozások',
+				name: 'Lóasszisztált foglalkozások',
 				itemListElement: site.services.map((service) => ({
 					'@type': 'Offer',
 					itemOffered: { '@type': 'Service', name: service.name, url: new URL(service.url, origin).href, provider: { '@id': `${origin}/#business` } },

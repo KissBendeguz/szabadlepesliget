@@ -1,0 +1,82 @@
+---
+const audience = [
+	{
+		icon: 'bi-universal-access',
+		title: 'Mozgásos tapasztalatok gazdagításához',
+		text: 'Azoknak a gyerekeknek, akiknek jól jöhet több játékos lehetőség az egyensúly, a koordináció, a testtudat és a mozgástervezés gyakorlására.',
+	},
+	{
+		icon: 'bi-bullseye',
+		title: 'Figyelem és feladathelyzetek támogatásához',
+		text: 'Ha szeretnétek élményszerű helyzetekben gyakorolni a koncentrációt, a feladattartást, a megfigyelést és az egyszerű szabályok követését.',
+	},
+	{
+		icon: 'bi-heart',
+		title: 'Önbizalom és bátorság erősítéséhez',
+		text: 'Visszahúzódóbb, bizonytalanabb vagy új helyzetekben több időt igénylő gyermekeknek, akiknek fontosak az apró, megélhető sikerek.',
+	},
+	{
+		icon: 'bi-flower1',
+		title: 'Kapcsolódás és alkalmazkodás gyakorlásához',
+		text: 'Ha a gyermeknek támogató tapasztalatot adhat a ló jelzéseire való figyelés, a türelmes együttműködés és a kiszámítható keretek megtapasztalása.',
+	},
+];
+
+const benefits = [
+	{
+		icon: 'bi-universal-access',
+		title: 'Mozgás és testtudat',
+		items: ['egyensúly és koordináció', 'tartás és törzsstabilitás', 'téri tájékozódás', 'ritmus és mozgástervezés'],
+	},
+	{
+		icon: 'bi-bullseye',
+		title: 'Figyelem és gondolkodás',
+		items: ['koncentráció és feladattartás', 'megfigyelőképesség', 'emlékezet és sorrendiség', 'szabályok megértése'],
+	},
+	{
+		icon: 'bi-heart',
+		title: 'Érzelmi tapasztalatok',
+		items: ['sikerélmény és önbizalom', 'saját határok érzékelése', 'türelem és kitartás', 'biztonságos kapcsolódás'],
+	},
+	{
+		icon: 'bi-sun',
+		title: 'Kapcsolat és környezet',
+		items: ['kommunikáció és együttműködés', 'a ló jelzéseinek megfigyelése', 'felelősségteljes állatkapcsolat', 'természetközeli élmények'],
+	},
+];
+---
+
+<section class="audience-benefits" aria-labelledby="audience-title">
+	<div class="service-detail-heading">
+		<p class="eyebrow">Egyéni szükségletekre figyelve</p>
+		<h2 id="audience-title">Kinek lehet jó választás?</h2>
+		<p>A foglalkozás nem diagnózisokhoz, hanem a gyermek egyéni erősségeihez, aktuális kihívásaihoz és fejlesztési céljaihoz igazodik. Az alkalmasságot minden esetben előzetesen egyeztetjük.</p>
+	</div>
+	<div class="audience-grid">
+		{audience.map((item) => (
+			<article class="audience-card">
+				<span class="service-detail-icon"><i class:list={['bi', item.icon]} aria-hidden="true"></i></span>
+				<div><h3>{item.title}</h3><p>{item.text}</p></div>
+			</article>
+		))}
+	</div>
+
+	<div class="service-detail-heading benefits-heading">
+		<p class="eyebrow">A ló mozgása és jelenléte</p>
+		<h2>Milyen területeket támogathat?</h2>
+		<p>A lóháton végzett feladatok egyszerre adnak mozgásos, figyelmi, érzelmi és kapcsolati tapasztalatokat. A változás minden gyermeknél egyéni; konkrét eredmény nem garantálható.</p>
+	</div>
+	<div class="benefits-detail-grid">
+		{benefits.map((item) => (
+			<article class="benefits-detail-card">
+				<span class="service-detail-icon"><i class:list={['bi', item.icon]} aria-hidden="true"></i></span>
+				<h3>{item.title}</h3>
+				<ul>{item.items.map((point) => <li><i class="bi bi-check2-circle" aria-hidden="true"></i>{point}</li>)}</ul>
+			</article>
+		))}
+	</div>
+	<aside class="scope-note">
+		<i class="bi bi-heart" aria-hidden="true"></i>
+		<p><strong>Fontos:</strong> a foglalkozás nem lovasterápia, diagnosztika, gyógykezelés vagy rehabilitáció, és nem helyettesít egészségügyi, pszichológiai vagy gyógypedagógiai ellátást.</p>
+	</aside>
+</section>

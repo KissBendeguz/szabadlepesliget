@@ -21,7 +21,7 @@ const preparedImages = await Promise.all(images.map(async (image) => {
 
 <section class:list={['gallery-section', { section: !fullPage, 'gallery-full': fullPage }]} id={fullPage ? undefined : 'galeria'}>
 	<div class={fullPage ? undefined : 'container'}>
-		{showHeading && <SectionHeading eyebrow="Pillanatok az udvarból" title={fullPage ? 'Lovas és tanyasi pillanataink' : 'Élet a ZsM Lovasudvarban'} description={fullPage ? 'Válogatás a lovasudvar őszinte, vidám és csendes mindennapjaiból.' : 'Őszinte találkozások, csendes figyelem és vidám tanyasi hétköznapok a Káli-medencében.'} centered />}
+		{showHeading && <SectionHeading eyebrow="Pillanatok az udvarból" title={fullPage ? 'Fejlesztő, önismereti és tanyasi pillanataink' : 'Élet a ZsM Lovasudvarban'} description={fullPage ? 'Válogatás a lóval való kapcsolódás és a lovasudvar őszinte, vidám mindennapjaiból.' : 'Őszinte találkozások, csendes figyelem és vidám tanyasi hétköznapok a Káli-medencében.'} centered />}
 		<div class="gallery-masonry">
 			{preparedImages.map((image) => <figure class="gallery-card"><button class="gallery-open" type="button" data-src={image.src} data-alt={image.alt} data-caption={image.caption} aria-label={`${image.caption} – kép nagyítása`}><img src={image.thumbnail} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" /><span class="gallery-zoom" aria-hidden="true"><i class="bi bi-arrows-fullscreen"></i></span></button><figcaption>{image.caption}</figcaption></figure>)}
 		</div>
