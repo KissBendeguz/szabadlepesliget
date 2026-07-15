@@ -4,7 +4,10 @@ import { navigation, site } from '../../data/site';
 
 <header class="site-header">
 	<div class="container header-inner">
-		<a class="brand brand-circle" href="/" aria-label={`${site.name} – kezdőlap`}><img src="/images/logo-text-bg512.webp" alt={site.name} width="64" height="64" /></a>
+		<a class="brand" href="/" aria-label="Szabadlépés Liget – kezdőlap">
+			<span class="brand-circle"><img src="/images/logo-text-bg512.webp" alt="" width="64" height="64" /></span>
+			<span class="brand-name">Szabadlépés Liget</span>
+		</a>
 		<nav class="desktop-nav" aria-label="Fő navigáció">{navigation.map((item) => <a href={item.href}>{item.label}</a>)}</nav>
 		<div class="header-actions">
 			<a class="phone-link" href={site.phoneLink} aria-label={`Telefon: ${site.phoneDisplay}`}><i class="bi bi-telephone" aria-hidden="true"></i><span>{site.phoneDisplay}</span></a>

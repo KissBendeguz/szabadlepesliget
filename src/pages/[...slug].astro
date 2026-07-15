@@ -9,5 +9,6 @@ export function getStaticPaths() {
 
 interface Props { page: SeoPage; }
 const { page } = Astro.props;
+const title = `${page.title.split(' | ')[0]} | Szabadlépés Liget`;
 ---
-<BaseLayout title={page.title} description={page.description}><ContentPage page={page} /></BaseLayout>
+<BaseLayout title={title} description={page.description}><ContentPage page={page} /></BaseLayout>
