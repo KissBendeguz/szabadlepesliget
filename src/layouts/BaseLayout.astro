@@ -1,5 +1,6 @@
 ---
-import '../styles/global.css';
+import globalStylesheet from '../styles/global.css?url';
+import criticalStyles from '../styles/critical.css?raw';
 import Header from '../components/shared/Header.astro';
 import Footer from '../components/shared/Footer.astro';
 import MobileBar from '../components/shared/MobileBar.astro';
@@ -14,6 +15,10 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefin
 	<head>
 		<meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="generator" content={Astro.generator} />
 		<SeoHead title={title} description={description} canonical={canonical} noindex={noindex} /><meta name="theme-color" content="#3f5a36" /><meta name="color-scheme" content="light" />
+		<style is:inline set:html={criticalStyles}></style>
+		<link rel="preload" href={globalStylesheet} as="style" />
+		<link rel="stylesheet" href={globalStylesheet} media="print" onload="this.media='all'" />
+		<noscript><link rel="stylesheet" href={globalStylesheet} /></noscript>
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" /><link rel="icon" type="image/webp" sizes="64x64" href="/images/logo-text-bg64.webp" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" />
 		<title>{title}</title>
 	</head>
