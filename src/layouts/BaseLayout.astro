@@ -14,7 +14,7 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site) : undefin
 	<head>
 		<meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><meta name="generator" content={Astro.generator} />
 		<SeoHead title={title} description={description} canonical={canonical} noindex={noindex} /><meta name="theme-color" content="#3f5a36" /><meta name="color-scheme" content="light" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" /><link rel="icon" type="image/webp" href="/images/logo-text-bg1024.webp" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" /><link rel="icon" type="image/webp" sizes="64x64" href="/images/logo-text-bg64.webp" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="manifest" href="/site.webmanifest" />
 		<title>{title}</title>
 	</head>
 	<body><a class="skip-link" href="#tartalom">Ugrás a tartalomra</a><Header /><main id="tartalom"><slot /></main><Footer /><MobileBar /></body>

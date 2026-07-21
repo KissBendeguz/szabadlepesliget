@@ -24,7 +24,7 @@ const usesResponsiveBanner = page.image.includes('newbanner');
 						{page.heading}
 					</h1><p>{page.intro}</p>
 				</div><div class="page-hero-image">
-					{usesResponsiveBanner ? <picture><source type="image/webp" srcset="/images/newbanner-480.webp 480w, /images/newbanner-768.webp 768w, /images/newbanner-1024.webp 1024w, /images/newbanner-1280.webp 1280w, /images/newbanner-1448.webp 1448w" sizes="(max-width: 820px) 100vw, 46vw" /><img src="/images/newbanner.png" alt={page.imageAlt} width="1448" height="1086" fetchpriority="high" /></picture> : <img src={page.image} alt={page.imageAlt} width="1200" height="900" fetchpriority="high" />}
+					{usesResponsiveBanner ? <picture><source type="image/avif" srcset="/images/newbanner-480.avif 480w, /images/newbanner-768.avif 768w, /images/newbanner-1024.avif 1024w, /images/newbanner-1280.avif 1280w, /images/newbanner-1448.avif 1448w" sizes="(max-width: 820px) 100vw, 46vw" /><source type="image/webp" srcset="/images/newbanner-480.webp 480w, /images/newbanner-768.webp 768w, /images/newbanner-1024.webp 1024w, /images/newbanner-1280.webp 1280w, /images/newbanner-1448.webp 1448w" sizes="(max-width: 820px) 100vw, 46vw" /><img src="/images/newbanner.png" alt={page.imageAlt} width="1448" height="1086" fetchpriority="high" /></picture> : <img src={page.image} alt={page.imageAlt} width="1200" height="900" fetchpriority="high" />}
 				</div>
 			</div>
 		</div>

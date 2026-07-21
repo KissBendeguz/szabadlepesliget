@@ -44,3 +44,5 @@ Desktop.ini
 # original, unoptimized gallery sources are stored separately
 public/gallery/raw/
 /source-assets/
+
+*.ignore

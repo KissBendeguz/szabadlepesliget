@@ -1,13 +1,26 @@
 <section class="about section" id="rolunk">
 	<div class="container split-grid">
 		<div class="photo-stack">
-			<img
-				src="/gallery/3d804c2c-a334-432e-b162-5840771a37a7.webp"
-				alt="A foglalkozásvezető szeretettel öleli a lovat"
-				width="1200"
-				height="1600"
-				loading="lazy"
-			/><div class="hand-note">
+			<picture>
+				<source
+					type="image/avif"
+					srcset="/images/about-480.avif 480w, /images/about-768.avif 768w"
+					sizes="(max-width: 820px) calc(100vw - 30px), 480px"
+				/>
+				<source
+					type="image/webp"
+					srcset="/images/about-480.webp 480w, /images/about-768.webp 768w"
+					sizes="(max-width: 820px) calc(100vw - 30px), 480px"
+				/>
+				<img
+					src="/images/about-480.webp"
+					alt="A foglalkozásvezető szeretettel öleli a lovat"
+					width="480"
+					height="640"
+					loading="lazy"
+					decoding="async"
+				/>
+			</picture><div class="hand-note">
 				„Nálunk minden találkozás a bizalommal kezdődik.” <i
 					class="bi bi-heart"
 					aria-hidden="true"></i>
